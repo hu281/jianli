@@ -243,38 +243,6 @@ function handleSwipe() {
       }
     }
   });
-  // 移除之前的touch事件处理，改用更精确的判断
-carousel.addEventListener('touchstart', (e) => {
-  const touch = e.touches[0];
-  touchStartX = touch.clientX;
-  // 检查是否点击了按钮
-  const clickedBtn = touch.target.closest('.hero-btn');
-  if (clickedBtn) {
-    // 如果是按钮，则不处理滑动
-    e.stopPropagation();
-  }
-}, {passive: true});
-
-carousel.addEventListener('touchend', (e) => {
-  const touch = e.changedTouches[0];
-  touchEndX = touch.clientX;
-  // 检查是否点击了按钮
-  const clickedBtn = touch.target.closest('.hero-btn');
-  if (!clickedBtn) {
-    handleSwipe();
-  }
-}, {passive: true});
-// ▲▲▲ 新添加的代码结束 ▲▲▲
-
-// 原有的滑动处理函数
-function handleSwipe() {
-  const threshold = 50;
-  if (touchEndX < touchStartX - threshold) {
-    nextSlide();
-  } else if (touchEndX > touchStartX + threshold) {
-    prevSlide();
-  }
-}
   
   // 平滑滚动
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -290,19 +290,19 @@ ul {
 .carousel-item:nth-child(1) {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('https://gd-hbimg.huaban.com/7b87e1a70c1f53a134168591d691484203e5ff61316bf2-QzhpkU');
+    url('img/beijin.png');
 }
 
 .carousel-item:nth-child(2) {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('https://gd-hbimg.huaban.com/de9903822d74a5e1d6063193564cbcd7a63e56e0455bf-LP3V0m');
+    url('img/xiangmu1.png');
 }
 
 .carousel-item:nth-child(3) {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('https://gd-hbimg.huaban.com/ef119a8b3824ea39dc2cd1f5848aab0e66c1601638e6c-cediFK');
+    url('img/xiangmu2.png');
 }
 
 .hero-btn {
@@ -679,6 +679,18 @@ ul {
   background-color: var(--card-bg);
   border-radius: 10px;
   box-shadow: var(--shadow);
+}
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* 最大宽度 */
+  margin: 0 auto;
+}
+
+#skills-radar-chart {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1; /* 保持正方形 */
 }
 
 /* 时间轴样式 */
