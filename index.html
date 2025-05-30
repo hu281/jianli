@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="胡燨的个人简历网站">
+  <title>胡燨 - 前端工程师</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+  <div class="container">
+    <a href="#" class="logo">胡燨</a>
+    <button class="menu-toggle" aria-label="菜单" id="menu-toggle">
+      
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">个人简介</a></li>
+      <li><a href="#projects">项目</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#timeline">经历</a></li>
+      <li><a href="#contact">联系方式</a></li>
+      <li><button id="theme-toggle" aria-label="切换主题">🌓</button></li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- 返回顶部按钮 -->
+  <button id="back-to-top" aria-label="返回顶部">↑</button>
+
+  <main class="container">
+    <!-- 轮播图 -->
+<section class="carousel-section" id="about">
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="hero-content">
+          <h1>你好，我是胡燨</h1>
+          <p>区块链工程专业学生 | 前端开发爱好者</p>
+          <a href="#contact" class="btn hero-btn">联系我</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="hero-content">
+          <h1>我的技能</h1>
+          <p>HTML/CSS | JavaScript | Vue | React</p>
+          <a href="#skills" class="btn hero-btn">查看技能</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="hero-content">
+          <h1>我的项目</h1>
+          <p>基于物联网的智能农业监控系统</p>
+          <a href="#projects" class="btn hero-btn">查看项目</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control prev" aria-label="上一张">❮</button>
+    <button class="carousel-control next" aria-label="下一张">❯</button>
+    <div class="carousel-indicators"></div>
+  </div>
+</section>
+
+    <!-- 个人简介 -->
+    <section class="about-section">
+      <div class="profile-card">
+        <div class="profile-image">
+          <img src="img/jl1.png">
+        </div>
+        <div class="profile-info">
+          <h2>基本信息</h2>
+          <div class="info-grid">
+            <div class="info-group">
+              <ul>
+                <li><span>姓名</span>胡燨</li>
+                <li><span>性别</span>男</li>
+                <li><span>年龄</span>20</li>
+                <li><span>电话</span>15319976031</li>
+                <li><span>邮箱</span>1018816121@qq.com</li>
+              </ul>
+            </div>
+            <div class="info-group">
+              <ul>
+                <li><span>所在地址</span>三亚</li>
+                <li><span>毕业院校</span>三亚学院</li>
+                <li><span>政治面貌</span>群众</li>
+                <li><span>学历</span>本科</li>
+                <li><span>求职意向</span>前端工程师</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目展示部分 -->
+<section class="projects-section" id="projects">
+  <h2 class="section-title">项目展示</h2>
+  <div class="projects-grid">
+    <!-- 项目1：智农云（留空模板） -->
+    <div class="project-card">
+      <div class="project-image" style="background-image: url('您的图片URL')">
+        <!-- 图片区域 -->
+      </div>
+      <div class="project-content">
+        <h3>智农云</h3>
+        <div class="project-description">
+          <p>请在此填写项目描述...</p>
+        </div>
+        <div class="project-details">
+          <div class="tech-stack">
+            <h4>技术栈</h4>
+            <div class="tech-tags">
+              <!-- 请填写使用的技术 -->
+              <span>技术1</span>
+              <span>技术2</span>
+              <span>技术3</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="您的演示链接" 
+               class="btn demo-btn" 
+               target="_blank">
+              <i class="fas fa-external-link-alt"></i> 在线演示
+            </a>
+            <a href="https://github.com/hu281/dom1.git" 
+               class="btn github-btn" 
+               target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目2：个人网站（完整示例） -->
+    <div class="project-card">
+      <div class="project-image" style="background-image: url('https://via.placeholder.com/400x250?text=个人网站')"></div>
+      <div class="project-content">
+        <h3>个人简历网站</h3>
+        <div class="project-description">
+          <p>响应式设计的个人简历网站，展示个人信息、技能、项目经历和联系方式。</p>
+        </div>
+        <div class="project-details">
+          <div class="tech-stack">
+            <h4>技术栈</h4>
+            <div class="tech-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>响应式设计</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="img/演示.mp4" 
+               class="btn demo-btn" 
+               target="_blank">
+              <i class="fas fa-external-link-alt"></i> 在线演示
+            </a>
+            <a href="https://github.com/hu281/dom1.git" 
+               class="btn github-btn" 
+               target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- 技能展示 -->
+    <section class="skills-section" id="skills">
+      <h2 class="section-title">技能展示</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+          </div>
+          <h3>HTML5</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%"></div>
+            <span>90%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+          </div>
+          <h3>CSS3</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 85%"></div>
+            <span>85%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+          </div>
+          <h3>JavaScript</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 80%"></div>
+            <span>80%</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue">
+          </div>
+          <h3>Vue.js</h3>
+          <div class="progress-bar">
+            <div class="progress" style="width: 75%"></div>
+            <span>75%</span>
+          </div>
+        </div>
+      </div>
+      <div class="radar-chart-container">
+        <canvas id="skills-radar-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- 时间轴 -->
+    <section class="timeline-section" id="timeline">
+      <h2 class="section-title">学习经历</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2023-09 ~ 至今</h3>
+            <p>三亚学院 - 区块链工程专业</p >
+            <p>主修课程: web前端框架开发、密码学、数据库等</p >
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2024.12</h3>
+            <p>整理所学知识、拓展相关知识</p >
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2024.9</h3>
+            <p>自主创建项目</p >
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2023.10</h3>
+            <p>加入班级</p >
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>2023.9</h3>
+            <p>走进大学</p >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact-section" id="contact">
+      <h2 class="section-title">联系方式</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <h3>邮箱</h3>
+          <p>1018816121@qq.com</p >
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <h3>电话</h3>
+          <p>15319976031</p >
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <h3>地址</h3>
+          <p>三亚学院</p >
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 胡燨. 保留所有权利.</p >
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
