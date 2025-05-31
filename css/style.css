@@ -290,19 +290,19 @@ ul {
 .carousel-item:nth-child(1) {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('img/beijin.png');
+    url('../img/beijin.png');
 }
 
 .carousel-item:nth-child(2) {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('img/xiangmu1.png');
+    url('../img/xiangmu1.png');
 }
 
 .carousel-item:nth-child(3) {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-    url('img/xiangmu2.png');
+    url('../img/xiangmu2.png');
 }
 
 .hero-btn {
@@ -857,6 +857,41 @@ ul {
     transform: translateY(0);
   }
 }
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 时间轴动画类 */
+.timeline-item {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.animate-left {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.timeline-item.animate-right {
+  animation: slideInRight 0.6s ease forwards;
+}
 
 /* 响应式设计 */
 @media (max-width: 992px) {
@@ -973,4 +1008,13 @@ body {
 /* 按钮发光效果 */
 .btn:hover {
   box-shadow: 0 0 15px var(--primary-color);
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2; /* 确保在遮罩层下方 */
+  background-color: #2c3e50; /* 背景底色 */
 }
