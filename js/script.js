@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', function() {
   // 1. 导航菜单功能
   initNavigation();
@@ -21,6 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 7. 进度条动画
   animateProgressBars();
+
+  // 8. 时间轴动画
+  initTimelineAnimation();
+  // 9. 粒子背景
+  initParticles();
+
+  //10. AI聊天机器人
+  initChatbot();
 });
 
 // ===== 功能模块 =====
@@ -301,12 +307,6 @@ function initTimelineAnimation() {
   window.addEventListener('scroll', checkTimelineItems);
 }
 
-// 在DOMContentLoaded事件监听器中添加
-document.addEventListener('DOMContentLoaded', function() {
-  
-  // 8. 时间轴动画
-  initTimelineAnimation();
-});
 // 粒子背景
 function initParticles() {
   particlesJS("particles-js", {
@@ -376,7 +376,131 @@ function initParticles() {
   });
 }
 
-// 在DOMContentLoaded中调用
-document.addEventListener('DOMContentLoaded', function() {
-  initParticles();
+// 8. AI聊天机器人功能
+function initChatbot() {
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbotContainer = document.getElementById('chatbot-container');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotText = document.getElementById('chatbot-text');
+  const chatbotSend = document.getElementById('chatbot-send');
+  
+  // 欢迎消息
+  const welcomeMessages = [
+    "你好！我是AI助手，有什么可以帮您的吗？",
+    "欢迎咨询，请问您有什么问题？",
+    "您好！我是您的个人助手，随时为您服务。"
+  ];
+  
+  // 显示欢迎消息
+  function showWelcomeMessage() {
+    const welcomeMessage = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+    addBotMessage(welcomeMessage);
+  }
+  
+  // 添加用户消息
+  function addUserMessage(text) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', 'user-message');
+    messageDiv.textContent = text;
+    chatbotMessages.appendChild(messageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+  
+  // 添加机器人消息
+  function addBotMessage(text) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', 'bot-message');
+    messageDiv.textContent = text;
+    chatbotMessages.appendChild(messageDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+  
+  // 模拟AI响应
+async function getAIResponse(userInput) {
+  const API_URL = "https://api.deepseek.com/v1/chat/completions";
+  const API_KEY = "sk-f65e00c2b7194cc287055af5b1063865"; // 替换为您的真实 API 密钥
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "deepseek-chat",  // 或其他支持的模型
+        messages: [
+          { role: "user", content: userInput }
+        ],
+        temperature: 0.7,
+        max_tokens: 1024,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.choices[0].message.content;
+  } catch (error) {
+    console.error("API 调用失败:", error);
+    return "⚠️ 请求失败，请稍后再试";
+  }
+}
+  
+  // 切换聊天窗口
+  chatbotToggle.addEventListener('click', function() {
+    const isVisible = chatbotContainer.style.display === 'flex';
+    chatbotContainer.style.display = isVisible ? 'none' : 'flex';
+    if (!isVisible && chatbotMessages.children.length === 0) {
+      showWelcomeMessage();
+    }
+  });
+  
+  // 关闭聊天窗口
+  chatbotClose.addEventListener('click', function() {
+    chatbotContainer.style.display = 'none';
+  });
+  
+  // 发送消息
+  // 消息发送函数
+async function sendMessage() {
+  const message = chatbotText.value.trim();
+  if (!message) return;
+  
+  addUserMessage(message);
+  chatbotText.value = '';
+  disableInput();
+  
+  try {
+    const aiResponse = await getAIResponse(message);
+    addBotMessage(aiResponse);
+  } catch (error) {
+    addBotMessage("服务暂时不可用");
+    console.error("发送消息失败:", error);
+  } finally {
+    enableInput();
+  }
+}
+
+// 禁用输入状态
+function disableInput() {
+  chatbotText.disabled = true;
+  chatbotSend.disabled = true;
+}
+
+// 启用输入状态
+function enableInput() {
+  chatbotText.disabled = false;
+  chatbotSend.disabled = false;
+  chatbotText.focus();
+}
+
+// 初始化事件监听
+chatbotSend.addEventListener('click', () => sendMessage());
+chatbotText.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
 });
+}
