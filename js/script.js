@@ -19,13 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 7. 进度条动画
   animateProgressBars();
-
   // 8. 时间轴动画
   initTimelineAnimation();
-  // 9. 粒子背景
+  // 9.粒子背景
   initParticles();
-
-  //10. AI聊天机器人
+// 10. AI聊天机器人功能
   initChatbot();
 });
 
@@ -56,8 +54,7 @@ function initNavigation() {
 function initThemeToggle() {
   const themeToggle = document.getElementById('theme-toggle');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-  
-  // 检查本地存储或系统偏好
+
   const currentTheme = localStorage.getItem('theme') || 
                       (prefersDarkScheme.matches ? 'dark' : 'light');
   
@@ -306,8 +303,7 @@ function initTimelineAnimation() {
   // 滚动时检查
   window.addEventListener('scroll', checkTimelineItems);
 }
-
-// 粒子背景
+// 9.粒子背景
 function initParticles() {
   particlesJS("particles-js", {
     "particles": {
@@ -375,8 +371,7 @@ function initParticles() {
     "retina_detect": true
   });
 }
-
-// 8. AI聊天机器人功能
+// 10. AI聊天机器人功能
 function initChatbot() {
   const chatbotToggle = document.getElementById('chatbot-toggle');
   const chatbotContainer = document.getElementById('chatbot-container');
@@ -419,7 +414,7 @@ function initChatbot() {
   // 模拟AI响应
 async function getAIResponse(userInput) {
   const API_URL = "https://api.deepseek.com/v1/chat/completions";
-  const API_KEY = "sk-f65e00c2b7194cc287055af5b1063865"; // 替换为您的真实 API 密钥
+  const API_KEY = "sk-f65e00c2b7194cc287055af5b1063865";
 
   try {
     const response = await fetch(API_URL, {
@@ -429,7 +424,7 @@ async function getAIResponse(userInput) {
         "Authorization": `Bearer ${API_KEY}`,
       },
       body: JSON.stringify({
-        model: "deepseek-chat",  // 或其他支持的模型
+        model: "deepseek-chat",
         messages: [
           { role: "user", content: userInput }
         ],

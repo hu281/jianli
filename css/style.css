@@ -18,11 +18,10 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   transition: var(--transition);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 
 }
 
-/* 添加半透明遮罩增强文字可读性 */
+/* 添加半透明遮罩 */
 body::before {
   content: '';
   position: fixed;
@@ -78,6 +77,13 @@ body::before {
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: var(--transition);
+}
 
 .container {
   width: 100%;
@@ -846,7 +852,7 @@ ul {
     transform: translateY(0);
   }
 }
-\keyframes slideInLeft {
+@keyframes slideInLeft {
   from {
     opacity: 0;
     transform: translateX(-50px);
@@ -979,8 +985,12 @@ ul {
     grid-template-columns: 1fr;
   }
 }
+/* 添加全局文字阴影 */
+body {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
 
-/* 卡片悬停效果增强 */
+/* 卡片悬停效果 */
 .profile-card:hover,
 .project-card:hover,
 .skill-card:hover,
