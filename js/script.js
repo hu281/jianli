@@ -460,7 +460,6 @@ async function getAIResponse(userInput) {
   });
   
   // 发送消息
-  // 消息发送函数
 async function sendMessage() {
   const message = chatbotText.value.trim();
   if (!message) return;
